@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
+\usepackage[colorlinks = true]{hyperref}
 
 \title{Some Notes on Logic}
 \author{Emily Jensen}
@@ -11,5 +12,24 @@
 
 \section{Purpose}
 Since joining a new research group last semester I've been thrust back into the world of formal logic and reasoning. My mental muscles using precise definitions and proofs from college are a bit weak! The document will serve as a central location to re-acquaint myself with these topics and become more comfortable with the world of modal logic. My goal is to provide basic definitions, intuitive explanations (when possible) and practical tips for writing about logic using \LaTeX. These notes are intended just for me, but I'd be happy if they helped someone else as well.
+
+\section{Types of Logic Systems}
+
+These systems are roughly ordered from basic to complex.
+
+\subsection{Propositional Logic}
+Propositional Logic studies the relationships between statements, also called \textit{propositions}. These propositions are considered as complete units and are not broken down into smaller parts. Propositions are often represented by letters such as $p$ and $q$ and can be expressed by sentences with a clear True or False value such as ``It is raining right now'' or ``I ate lunch yesterday''. Propositions can be combined using the following operators: \textit{and} ($\wedge$), \textit{or} ($\vee$), and \textit{not} ($\neg$), \textit{implication} ($\to$), and \textit{iff} (if and only if, $\leftrightarrow$).
+
+\section{Reference of \LaTeX Commands}
+
+These are listed alphabetically by name (not command). A helpful reference is \href{http://detexify.kirelabs.org/classify.html}{Detexify}.
+
+\begin{itemize}
+    \item AND ($\wedge$) uses \verb|\wedge|
+    \item IF AND ONLY IF ($\leftrightarrow$) uses \verb|\leftrightarrow|
+    \item IMPLIES ($\to$) uses \verb|\to|
+    \item NOT ($\neg$) uses \verb|\neg|
+    \item OR ($\vee$) uses \verb|\vee|
+\end{itemize}
 
 \end{document}
