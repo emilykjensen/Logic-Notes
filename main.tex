@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[colorlinks = true]{hyperref}
+\usepackage{ amssymb }
 
 \title{Some Notes on Logic}
 \author{Emily Jensen}
@@ -13,12 +14,47 @@
 \section{Purpose}
 Since joining a new research group last semester I've been thrust back into the world of formal logic and reasoning. My mental muscles using precise definitions and proofs from college are a bit weak! The document will serve as a central location to re-acquaint myself with these topics and become more comfortable with the world of modal logic. My goal is to provide basic definitions, intuitive explanations (when possible) and practical tips for writing about logic using \LaTeX. These notes are intended just for me, but I'd be happy if they helped someone else as well.
 
-\section{Types of Logic Systems}
+\section{Basic Definitions}
 
-These systems are roughly ordered from basic to complex.
+\textit{Logic} is generally defined as a method of finding conclusions based on premises. There are many types of logic systems that make use of different assumptions and tools. Some systems are described in Section \ref{sec:LogicSystems}.
+
+\textit{Propositions} are complete statements that cannot be broken down into smaller parts. Propositions are often represented by letters such as $p$ and $q$ and can be expressed by sentences with a clear True or False value such as ``It is raining right now'' or ``I ate lunch yesterday''. Propositional Logic is described in Section \ref{sec:PropositionalLogic}
+
+\textit{Operators} are used to describe the relationship between propositions and evaluate to a truth value. The operators in Propositional Logic can be defined using a truth table. The truth table encodes the truth value of the operator based on the possible truth values of the propositions. For example, the truth table for $\wedge$ is included below.
+
+\begin{center}
+    \begin{tabular}{c c | c}
+        p & q & p $\wedge$ q \\
+        \hline 
+        True & True & {True} \\
+        True & False & {False} \\
+        False & True & {False} \\
+        False & False & {False} \\
+    \end{tabular}
+\end{center}
+
+\textit{Formulas} are sets of propositions combined with operators. Formulas are evaluated to a truth value based on the assigned values of the propositions. An example of a more complex formula is $(p \wedge \neg q \wedge r) \to (q \vee \neg r)$
+
+A \textit{Model} is a set of propositions along with their truth value assignments. For example, we can define model $M$ as \[ M = \{p:True, q:False, r:True\}\]
+
+A model $M$ \textit{entails} a formula $\varphi$ if the formula evaluates to True (we say the formula \textit{holds}) based on the truth values assigned in the model. We can write this as $M \models \varphi$
+
+
+\section{Types of Logic Systems}
+\label{sec:LogicSystems}
+
+These systems are roughly ordered from basic to complex. The \href{https://plato.stanford.edu/}{Stanford Encyclopedia of Philosophy} was very helpful in creating these summaries and provides much more complete detail than I can hope to do here.
 
 \subsection{Propositional Logic}
-Propositional Logic studies the relationships between statements, also called \textit{propositions}. These propositions are considered as complete units and are not broken down into smaller parts. Propositions are often represented by letters such as $p$ and $q$ and can be expressed by sentences with a clear True or False value such as ``It is raining right now'' or ``I ate lunch yesterday''. Propositions can be combined using the following operators: \textit{and} ($\wedge$), \textit{or} ($\vee$), and \textit{not} ($\neg$), \textit{implication} ($\to$), and \textit{iff} (if and only if, $\leftrightarrow$).
+\label{sec:PropositionalLogic}
+Propositional Logic studies the relationships between propositions.  Propositions can be combined using the following operators: \textit{and} ($\wedge$), \textit{or} ($\vee$), and \textit{not} ($\neg$), \textit{implication} ($\to$), and \textit{iff} (if and only if, $\leftrightarrow$). Combining propositions with these operators yields a \textit{formula}, sometimes labeled $\varphi$ or $\psi$. We can also evaluate the truth value of a formula using the truth values of the individual propositions. For example, the formula $p \wedge q$ evaluates to True when $p$ and $q$ are True.
+
+\subsection{Modal Logic}
+Basic Modal Logic builds off of Propositional Logic by adding the operators ``it is necessary that'' (expressed by $\square$ and pronounced \textit{box}) and ``it is possible that'' (expressed by $\diamond$ and pronounced \textit{diamond}). Different logics in this family interpret these operators in different ways or may add additional operators.
+
+A common method of discussing Modal Logic is through the semantics of possible worlds, also called \textit{Kripke structures}. For each world $w$ in a set of possible worlds $W$, we can evaluate the truth value of a given formula. The key is that the truth values of propositions and thus formulas may be different between worlds. It is common to introduce a directed connection between worlds, which in some cases can be thought of as worlds occurring in the future. This connection is represented by a relation $R$. For worlds $w, w^\prime \in W$, we say that $wRw^\prime$ is True if we can reach $w^\prime$ from $w$.
+
+Using this idea of possible worlds, we can better define the $\square$ and $\diamond$ operators. We evaluate the truth value for these expressions individually for a given world. Keeping with the idea of worlds occurring over time, we can intuitively define $\square \varphi$ as True for a given world $\varphi$ holds in all possible future worlds. More concretely, we define COMPLETE THIS
 
 \section{Reference of \LaTeX Commands}
 
@@ -26,8 +62,12 @@ These are listed alphabetically by name (not command). A helpful reference is \h
 
 \begin{itemize}
     \item AND ($\wedge$) uses \verb|\wedge|
+    \item BOX ($\square$) uses \verb|\square|
+    \item DIAMOND ($\diamond$) uses \verb|\diamond|
+    \item ENTAILS ($\models$) uses \verb|\models|
     \item IF AND ONLY IF ($\leftrightarrow$) uses \verb|\leftrightarrow|
     \item IMPLIES ($\to$) uses \verb|\to|
+    \item IN ($\in$) uses \verb|\in|
     \item NOT ($\neg$) uses \verb|\neg|
     \item OR ($\vee$) uses \verb|\vee|
 \end{itemize}
